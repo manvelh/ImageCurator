@@ -62,6 +62,7 @@ Once you have all the packages downloaded properly, alone with the program, move
 into the image folder.
 
 To run the program type:
+
 `./script.sh 20 .5 2>/dev/null`
 
 Exclude `2>/dev/null` if you wish to see the error messages that pop up.
