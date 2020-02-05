@@ -14,10 +14,11 @@ Environmental Requirements:
 + exif
 
 Here is a link to download the shell I used for this project.
+
 Ubuntu 16: https://www.microsoft.com/en-us/p/ubuntu-1604-lts/9pjn388hp8c9?activetab=pivot:overviewtab
 
 Here is a script that you can copy and past into your terminal(shell) to
-install the packages you will need. Comment out the ones you dont with #.
+install the packages you will need. Comment out the ones you dont.
 
 '#!/bin/bash'
 Installing OpenCV
