@@ -18,7 +18,7 @@ Ubuntu 16: https://www.microsoft.com/en-us/p/ubuntu-1604-lts/9pjn388hp8c9?active
 
 Here is a script that you can copy and past into your terminal(shell) to
 install the packages you will need. Comment out the ones you dont with #.
-
+'''bash
 #!/bin/bash
 #Installing OpenCV
 git clone https://github.com/opencv/opencv.git
@@ -55,7 +55,7 @@ python -m pip install --user scipy
 
 #Installing exif
 python -m pip install --user exif
-
+'''
 
 
 
