@@ -11,7 +11,7 @@ TO RUN:
 ENVIRONMENTAL REQUIREMENTS:
 
 + Windows 10
-+ Bash 4.4 0 and Git 2.17.1
++ Bash 4.4.0 and Git 2.17.1
 + Python 2.7.15+, 3.6.8
 + CV2 3.2.0
 + Scipy 1.4.1
