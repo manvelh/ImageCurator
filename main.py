@@ -1,49 +1,55 @@
-"""
-@file laplace_demo.py
-@brief Sample code showing how to detect edges using the Laplace operator
-"""
+#THIS PROGRAMS TAKES AN IMAGE AND COMPUTES
+#AN IMAGE PROCESS BASED ON THE ARGUMENT TAG.
+
+#USE -B TO CHECK FOR BLUR
+#USE -S TO CHECK FOR SKEW
+
+#THE LAPLACIAN VARIANCE WHICH IS THE INDICATOR
+#OF A BLURRY IMAGE. IT ALSO COMPUTES THE HISTOGRAM
+#SKEWNESS WHICH IS AN INDICATOR OF HOW EXPOSED AN
+#IMAGE IS.
+#
+#author: Manvel Beaver
+
 import sys
 import cv2 as cv
+from scipy.stats import skew
+
 def main(argv):
-    # [variables]
-    # Declare the variables we are going to use
-    ddepth = cv.CV_16S
-    kernel_size = 3
-    # [variables]
-    # [load]
-    imageName = argv[0] if len(argv) > 0 else 'lena.jpg'
-    src = cv.imread(cv.samples.findFile(imageName), cv.IMREAD_COLOR) # Load an image
-    # Check if image is loaded fine
-    if src is None:
-#        print ('Error opening image')
- #       print ('Program Arguments: [image_name -- default lena.jpg]')
-        return -1
-    # [load]
-    # [reduce_noise]
-    # Remove noise by blurring with a Gaussian filter
-    src = cv.GaussianBlur(src, (3, 3), 0)
-    # [reduce_noise]
-    # [convert_to_gray]
-    # Convert the image to grayscale
-    src_gray = cv.cvtColor(src, cv.COLOR_BGR2GRAY)
-    # [convert_to_gray]
-    # Create Window
-#    cv.namedWindow(window_name, cv.WINDOW_AUTOSIZE)
-    # [laplacian]
-    # Apply Laplace function
-    dst = cv.Laplacian(src_gray, ddepth, ksize=kernel_size)
-    if dst.var() < 20:
-        print("Blurry")
-    # [laplacian]
-    # [convert]
-    # converting back to uint8
-    abs_dst = cv.convertScaleAbs(dst)
- 
-    # [convert]
-    # [display]
-#   cv.imshow(window_name, abs_dst)
-#   cv.waitKey(0)
-    # [display]
-    return 0
+	#1 CHANNEL OF SIGNED 2-BYTE INTEGER
+	ddepth = cv.CV_16S
+	#KERNEL FOR LAPLACE MATRIX
+	kernel_size = 3
+	#IMAGE FILE
+	fileName = argv[2]
+	#LOAD AND READ
+	src = cv.imread(fileName, cv.IMREAD_COLOR)
+	#CHECK IF SOURCE EXISTS
+	if src is None:
+		return -1
+	#COMPUTE LAPLACIAN
+	src = cv.GaussianBlur(src, (3, 3), 0)
+	src_gray = cv.cvtColor(src, cv.COLOR_BGR2GRAY)
+	dst = cv.Laplacian(src_gray, ddepth, ksize=kernel_size)
+
+	if argv[0] == "-B":
+		#COMPARES VAR TO ARG
+		if dst.var() < float(argv[1]):
+			#PRINT FOR OUTPUT PIPE
+			print("Blurry")
+	elif argv[0] == "-S": 
+		
+		img = cv.imread(fileName,0) 
+		if img is None:
+			return -1
+		#COMPUTE HISTOGRAM
+		histr = cv.calcHist([img],[0],None,[256],[0,256]) 
+		#COMPARES SKEW TO ARG
+		if skew(histr)[0] > float(argv[1]) or skew(histr) < -float(argv[1]):
+			#PRINT FOR OUTPUT PIPE
+			print("Skewed")
+	return 0
+
+#ARGS COLLECTED FROM SCRIPT
 if __name__ == "__main__":
-    main(sys.argv[1:])
+	main(sys.argv[1:])
