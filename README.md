@@ -60,8 +60,10 @@ python -m pip install --user exif
 
 Once you have all the packages downloaded properly, alone with the program, move the program
 into the image folder.
+
 To run the program type:
 `./script.sh 20 .5 2>/dev/null`
+
 Exclude `2>/dev/null` if you wish to see the error messages that pop up.
 
 
