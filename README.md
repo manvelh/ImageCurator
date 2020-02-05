@@ -5,6 +5,8 @@ between each sequential image in the folder.
 The main driver is the script.sh file which indexes the images, while
 the python files make the calculations.
 
+TO RUN:
+
 `$./script.sh <BLUR_THRESHOLD> <SKEW_THRESHOLD>`
 
 Environmental Requirements:
