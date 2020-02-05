@@ -1,15 +1,13 @@
-This program is intended to index through a folder of images and
-determines there sharpenss, exposure, and distribution of distance
-between each sequential image in the folder.
+This program is intended to index through a folder of images and determines there sharpenss, exposure, and distribution of distance between each sequential image in the folder.
 
-The main driver is the script.sh file which indexes the images, while
-the python files make the calculations.
+The main driver is the script.sh file which indexes the images, while the python files make the calculations.
 
 TO RUN:
 
 `$./script.sh <BLUR_THRESHOLD> <SKEW_THRESHOLD>`
 
-Environmental Requirements:
+ENVIRONMENTAL REQUIREMENTS:
+
 + Windows 10
 + Bash and Git
 + Python 2.7.15+, 3.6.8
@@ -21,8 +19,7 @@ Here is a link to download the shell I used for this project.
 
 Ubuntu 16: https://www.microsoft.com/en-us/p/ubuntu-1604-lts/9pjn388hp8c9?activetab=pivot:overviewtab
 
-Here is a script that you can copy and past into your terminal(shell) to
-install the packages you will need. Comment out the ones you dont.
+Here is a script that you can copy and past into your terminal(shell) to install the packages you will need. Comment out the ones you dont.
 ```
 #!/bin/bash
 Installing OpenCV
