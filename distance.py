@@ -35,12 +35,10 @@ def main(argv):
 		d = r * g
 		#CAST AS INT FOR BASH TO INTERPRET
 		d=int(d)
-
-
-
 		print("%d" %(d))
 
 		return 0
+	
 	except AttributeError as e:
 		pass
 
