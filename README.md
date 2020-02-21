@@ -1,6 +1,6 @@
 SUMMARY:
 
-This program is intended to index through a folder of images and determines there sharpenss, exposure, and distribution of distance between each sequential image in the folder.
+This program is intended to index through a folder of images and determines there sharpenss, exposure, and distribution of distance between each sequential image in the folder. UNITS OF DISTANCE ARE CONVERTED TO METERS.
 
 The main driver is the script.sh file which indexes the images, while the python files make the calculations.
 
